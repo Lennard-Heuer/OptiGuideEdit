@@ -191,7 +191,7 @@ parser.add_argument("--dataset", type=str, default="ours", help="The dataset to 
 parser.add_argument("--eval_epochs", type=int, default=1, help="The number of epochs between evaluations.")
 parser.add_argument("--print_iters", type=int, default=10, help="The number of iterations between printing results.")
 parser.add_argument("--lr", type=float, default=0.00005, help="The learning rate for the optimizer.")
-parser.add_argument("--text_types", type=str, default="all", help="Either `all` or `description only`")
+parser.add_argument("--text_types", type=str, default="all", help="Either `all` or `description_only`")
 parser.add_argument("--log_root", type=str, default="save_data/contrast", help="Root for loggin and saving.")
 parser.add_argument("--dropout", type=float, default=0.0, help="Dropout for the network.`")
 
@@ -199,7 +199,7 @@ parser.add_argument("--dropout", type=float, default=0.0, help="Dropout for the 
 args = parser.parse_args()
 model_name = args.model_name
 
-assert args.text_types in ["all", "description only"] # description only means we do not include code.
+assert args.text_types in ["all", "description_only"] # description only means we do not include code.
 
 if args.dataset == "ours":
     train_dataloader = getDataloadersWithCodeTexts("train_ours_data.pkl.gz",  
